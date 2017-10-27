@@ -5,11 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.alex.greendao.gen.DaoMaster;
 import com.alex.greendao.gen.DaoSession;
+import com.mob.MobApplication;
 
 /**
  * Created by 吴肖光 on 2017/10/26.
  */
-public class App extends Application {
+public class App extends MobApplication {
     static App app;
     private DaoSession daoSession;
 
