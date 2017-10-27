@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_login"
+    android:orientation="vertical"
+    android:id="@+id/linear_Register"
+    tools:context=".activity.RegisterAct">
+
+
+
+    <ImageView
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_brows_back"
+        android:id="@+id/back_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:id="@+id/register_Linear"
+        android:gravity="center_vertical"
+        android:background="@drawable/login_two_ed"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_singup_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:singleLine="true"
+            android:id="@+id/reginst_userName"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:background="#0000"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:hint="请输入邮箱"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/sign_Linear"
+        android:background="@drawable/login_ed"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:background="@drawable/ic_login_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:singleLine="true"
+            android:id="@+id/reginst_prassWord"
+            android:textSize="15sp"
+            android:background="#0000"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:hint="密码"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/register_Forget"
+        android:textColor="@color/main_green"
+        android:textSize="15sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:text="忘记密码?"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/register_Register"
+    android:background="@drawable/border_line_while"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginTop="30dp"
+    android:text="登录"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <Button
+        android:textColor="#ffffff"
+        android:id="@+id/Register_Login"
+        android:background="@drawable/border_two_line_while"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:text="注册"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
