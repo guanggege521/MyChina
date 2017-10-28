@@ -149,7 +149,7 @@ public class ForgetAct extends AppCompatActivity implements View.OnClickListener
 
             case R.id.forget_obtain:
                 setPopupWindow();
-                Presenter presenter = new Presenter(null, this);
+                Presenter presenter = new Presenter(null, this,null);
                 presenter.getUserOrWrod(forget_userName.getText().toString());
                 break;
             case R.id.forget_Login:
@@ -159,24 +159,6 @@ public class ForgetAct extends AppCompatActivity implements View.OnClickListener
         }
     }
 
-    private void submit() {
-        // validate
-        String userName = forget_userName.getText().toString().trim();
-        if (TextUtils.isEmpty(userName)) {
-            Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String prassWord = forget_prassWord.getText().toString().trim();
-        if (TextUtils.isEmpty(prassWord)) {
-            Toast.makeText(this, "短信验证码", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // TODO validate success, do something
-
-
-    }
 
     @Override
     public void REGISTERSTAGE(String registerstarge) {

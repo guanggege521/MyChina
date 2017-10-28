@@ -104,7 +104,7 @@ public class RegisterAct extends AppCompatActivity implements View.OnClickListen
 
                 setPopupWindow();
 
-                Presenter presenter = new Presenter(this,null);
+                Presenter presenter = new Presenter(this,null,null);
                 presenter.getUserOrWrod(reginst_userName.getText().toString(), reginst_prassWord.getText().toString());
                 break;
             case R.id.Register_Login:

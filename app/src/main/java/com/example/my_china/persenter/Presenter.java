@@ -7,6 +7,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.example.my_china.activity.ForgetAct;
+import com.example.my_china.activity.LoginAct;
 import com.example.my_china.activity.RegisterAct;
 import com.example.my_china.model.Model;
 import com.example.my_china.model.ModelInf;
@@ -22,7 +23,7 @@ public class Presenter implements PresenterInf,MyStage {
     ViewInf viewInf;
     ModelInf modelInf;
 
-    public Presenter(RegisterAct registerAct, ForgetAct forgetAct) {
+    public Presenter(RegisterAct registerAct, ForgetAct forgetAct, LoginAct loginAct) {
 
 
         if(registerAct!=null){
@@ -30,6 +31,9 @@ public class Presenter implements PresenterInf,MyStage {
         }
         if(forgetAct!=null){
             viewInf=forgetAct;
+        }
+        if(loginAct!=null){
+            viewInf=loginAct;
         }
         modelInf=new Model();
 
