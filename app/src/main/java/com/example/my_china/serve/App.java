@@ -11,7 +11,7 @@ import com.mob.MobApplication;
  * Created by 吴肖光 on 2017/10/26.
  */
 public class App extends MobApplication {
-    static App app;
+    public static App app;
     private DaoSession daoSession;
 
     @Override
@@ -26,7 +26,7 @@ public class App extends MobApplication {
     }
 
     public void getDaoSession() {
-        DaoMaster.DevOpenHelper userDao = new DaoMaster.DevOpenHelper(this, "UserDao");
+        DaoMaster.DevOpenHelper userDao = new DaoMaster.DevOpenHelper(this, "UserDao2");
         SQLiteDatabase db = userDao.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();

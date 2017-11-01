@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.my_china.R;
+import com.example.my_china.homepage.home_activity.activity.Home;
 import com.example.my_china.persenter.Presenter;
 import com.example.my_china.view.ViewInf;
 
@@ -104,7 +104,7 @@ public class RegisterAct extends AppCompatActivity implements View.OnClickListen
 
                 setPopupWindow();
 
-                Presenter presenter = new Presenter(this,null,null);
+                Presenter presenter = new Presenter(this,null,null,null,null);
                 presenter.getUserOrWrod(reginst_userName.getText().toString(), reginst_prassWord.getText().toString());
                 break;
             case R.id.Register_Login:
@@ -128,15 +128,17 @@ public class RegisterAct extends AppCompatActivity implements View.OnClickListen
     @Override
     public void REGISTERSTAGE(String registerstarge) {
 
-        //popupWindow.dismiss();
-        if (registerstarge.equals("OK")) {
-            Toast.makeText(RegisterAct.this, "登录成功", Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("userOK")) {
-            Toast.makeText(RegisterAct.this, "用户名不存在", Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("请输入用户名或邮箱！")) {
-            Toast.makeText(RegisterAct.this, "请输入用户名或邮箱...", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(RegisterAct.this, "密码错误", Toast.LENGTH_SHORT).show();
+        popupWindow.dismiss();
+        Toast.makeText(RegisterAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+        switch (registerstarge){
+            case "OK":
+                Toast.makeText(RegisterAct.this, "登录成功", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this, Home.class);
+                startActivity(intent);
+                break;
+            default:
+                Toast.makeText(RegisterAct.this, "密码错误", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }

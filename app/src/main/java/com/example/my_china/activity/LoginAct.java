@@ -88,15 +88,15 @@ public class LoginAct extends AppCompatActivity implements View.OnClickListener,
                         // 处理你自己的逻辑
                         Log.i("login","发送成功");
                     }
-                    if(event==SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE){
+                    else if(event==SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE){
                         Log.i("login","验证成功");
                         Intent intent=new Intent(LoginAct.this,Submitting.class);
                         intent.putExtra("username",login_userName.getText().toString());
                         startActivity(intent);
                         finish();
-                        Toast.makeText(LoginAct.this, "验证成功", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(LoginAct.this, "验证码有误", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(LoginAct.this, "验证成功", Toast.LENGTH_SHORT).show();
+                        finish();
+
                     }
                 }
             }
@@ -158,7 +158,7 @@ public class LoginAct extends AppCompatActivity implements View.OnClickListener,
         switch (v.getId()) {
             case R.id.login_obtain:
                 setPopupWindow();
-                Presenter presenter = new Presenter(null,null,this);
+                Presenter presenter = new Presenter(null,null,this,null,null);
                 presenter.getUserOrWrod(login_userName.getText().toString());
                 break;
             case R.id.register_Login:
@@ -170,21 +170,17 @@ public class LoginAct extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     public void REGISTERSTAGE(String registerstarge) {
-
         popupWindow.dismiss();
-
-        if (registerstarge.equals("手机号不能为空")) {
-            Toast.makeText(LoginAct.this, registerstarge, Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("请输入正确的手机号")) {
-            //NO
-            //handler.post(runnable);
-            Toast.makeText(LoginAct.this, registerstarge, Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("用户名已被注册，可找回")) {
-            Toast.makeText(LoginAct.this, registerstarge, Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("用户名有误")) {
-            handler.post(runnable);
-            SMSSDK.getVerificationCode("86", login_userName.getText().toString());
+        switch (registerstarge){
+            case "用户名有误":
+                handler.post(runnable);
+                SMSSDK.getVerificationCode("86", login_userName.getText().toString());
+                break;
+            default:
+                Toast.makeText(LoginAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+                break;
         }
+
     }
 
     private void setPopupWindow() {

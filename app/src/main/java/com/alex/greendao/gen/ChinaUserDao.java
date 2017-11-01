@@ -31,8 +31,11 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
         public final static Property Time = new Property(4, String.class, "time", false, "TIME");
         public final static Property Region = new Property(5, String.class, "region", false, "REGION");
         public final static Property Platform = new Property(6, String.class, "platform", false, "PLATFORM");
-        public final static Property Goodfield = new Property(7, String.class, "goodfield", false, "GOODFIELD");
-        public final static Property Autograph = new Property(8, String.class, "autograph", false, "AUTOGRAPH");
+        public final static Property Developplatform = new Property(7, String.class, "developplatform", false, "DEVELOPPLATFORM");
+        public final static Property Goodfield = new Property(8, String.class, "goodfield", false, "GOODFIELD");
+        public final static Property Autograph = new Property(9, String.class, "autograph", false, "AUTOGRAPH");
+        public final static Property Cellphone = new Property(10, String.class, "cellphone", false, "CELLPHONE");
+        public final static Property Sex = new Property(11, String.class, "sex", false, "SEX");
     };
 
 
@@ -55,8 +58,11 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
                 "\"TIME\" TEXT," + // 4: time
                 "\"REGION\" TEXT," + // 5: region
                 "\"PLATFORM\" TEXT," + // 6: platform
-                "\"GOODFIELD\" TEXT," + // 7: goodfield
-                "\"AUTOGRAPH\" TEXT);"); // 8: autograph
+                "\"DEVELOPPLATFORM\" TEXT," + // 7: developplatform
+                "\"GOODFIELD\" TEXT," + // 8: goodfield
+                "\"AUTOGRAPH\" TEXT," + // 9: autograph
+                "\"CELLPHONE\" TEXT," + // 10: cellphone
+                "\"SEX\" TEXT);"); // 11: sex
     }
 
     /** Drops the underlying database table. */
@@ -104,14 +110,29 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
             stmt.bindString(7, platform);
         }
  
+        String developplatform = entity.getDevelopplatform();
+        if (developplatform != null) {
+            stmt.bindString(8, developplatform);
+        }
+ 
         String goodfield = entity.getGoodfield();
         if (goodfield != null) {
-            stmt.bindString(8, goodfield);
+            stmt.bindString(9, goodfield);
         }
  
         String autograph = entity.getAutograph();
         if (autograph != null) {
-            stmt.bindString(9, autograph);
+            stmt.bindString(10, autograph);
+        }
+ 
+        String cellphone = entity.getCellphone();
+        if (cellphone != null) {
+            stmt.bindString(11, cellphone);
+        }
+ 
+        String sex = entity.getSex();
+        if (sex != null) {
+            stmt.bindString(12, sex);
         }
     }
 
@@ -154,14 +175,29 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
             stmt.bindString(7, platform);
         }
  
+        String developplatform = entity.getDevelopplatform();
+        if (developplatform != null) {
+            stmt.bindString(8, developplatform);
+        }
+ 
         String goodfield = entity.getGoodfield();
         if (goodfield != null) {
-            stmt.bindString(8, goodfield);
+            stmt.bindString(9, goodfield);
         }
  
         String autograph = entity.getAutograph();
         if (autograph != null) {
-            stmt.bindString(9, autograph);
+            stmt.bindString(10, autograph);
+        }
+ 
+        String cellphone = entity.getCellphone();
+        if (cellphone != null) {
+            stmt.bindString(11, cellphone);
+        }
+ 
+        String sex = entity.getSex();
+        if (sex != null) {
+            stmt.bindString(12, sex);
         }
     }
 
@@ -180,8 +216,11 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // time
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // region
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // platform
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // goodfield
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8) // autograph
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // developplatform
+            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // goodfield
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // autograph
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // cellphone
+            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // sex
         );
         return entity;
     }
@@ -195,8 +234,11 @@ public class ChinaUserDao extends AbstractDao<ChinaUser, Long> {
         entity.setTime(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setRegion(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setPlatform(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setGoodfield(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setAutograph(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setDevelopplatform(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setGoodfield(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setAutograph(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setCellphone(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setSex(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
      }
     
     @Override

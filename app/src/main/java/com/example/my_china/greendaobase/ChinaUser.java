@@ -13,14 +13,29 @@ import org.greenrobot.greendao.annotation.Generated;
 public class ChinaUser {
     @Id(autoincrement = true)
     Long id;
+    //用户名
     String username;
+    //密码
     String password;
+    //头像
     String hand;
+    //加入时间
     String time;
+    //地区
     String region;
+    //所在平台
     String platform;
+    //开发平台
+    String developplatform;
+    //擅长领域
     String goodfield;
+    //签名
     String autograph;
+    //手机号
+    String cellphone;
+    //性别
+    String sex;
+
     public String getAutograph() {
         return this.autograph;
     }
@@ -75,10 +90,28 @@ public class ChinaUser {
     public void setId(Long id) {
         this.id = id;
     }
-    @Generated(hash = 1382985789)
+    public String getCellphone() {
+        return this.cellphone;
+    }
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+    public String getDevelopplatform() {
+        return this.developplatform;
+    }
+    public void setDevelopplatform(String developplatform) {
+        this.developplatform = developplatform;
+    }
+    public String getSex() {
+        return this.sex;
+    }
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+    @Generated(hash = 809145744)
     public ChinaUser(Long id, String username, String password, String hand,
-            String time, String region, String platform, String goodfield,
-            String autograph) {
+            String time, String region, String platform, String developplatform,
+            String goodfield, String autograph, String cellphone, String sex) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -86,8 +119,11 @@ public class ChinaUser {
         this.time = time;
         this.region = region;
         this.platform = platform;
+        this.developplatform = developplatform;
         this.goodfield = goodfield;
         this.autograph = autograph;
+        this.cellphone = cellphone;
+        this.sex = sex;
     }
     @Generated(hash = 971612634)
     public ChinaUser() {

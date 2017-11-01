@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText
+            android:digits="1234567890"
             android:singleLine="true"
             android:id="@+id/login_userName"
             android:textSize="15sp"

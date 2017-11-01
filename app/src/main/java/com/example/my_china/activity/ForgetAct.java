@@ -89,9 +89,11 @@ public class ForgetAct extends AppCompatActivity implements View.OnClickListener
                     }
                     if(event==SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE){
                         Log.i("login","验证成功");
-                        Toast.makeText(ForgetAct.this, "验证成功", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(ForgetAct.this, "验证码有误", Toast.LENGTH_SHORT).show();
+
+                       // Toast.makeText(ForgetAct.this, "验证成功", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(ForgetAct.this,ReplacementAct.class);
+                        intent.putExtra("call",forget_userName.getText().toString());
+                        startActivity(intent);
                     }
                 }
             }
@@ -149,11 +151,10 @@ public class ForgetAct extends AppCompatActivity implements View.OnClickListener
 
             case R.id.forget_obtain:
                 setPopupWindow();
-                Presenter presenter = new Presenter(null, this,null);
+                Presenter presenter = new Presenter(null, this,null,null,null);
                 presenter.getUserOrWrod(forget_userName.getText().toString());
                 break;
             case R.id.forget_Login:
-
                 SMSSDK.submitVerificationCode("86",forget_userName.getText().toString(),forget_prassWord.getText().toString());
                 break;
         }
@@ -164,19 +165,27 @@ public class ForgetAct extends AppCompatActivity implements View.OnClickListener
     public void REGISTERSTAGE(String registerstarge) {
 
         popupWindow.dismiss();
-
-        if (registerstarge.equals("手机号不能为空")) {
-            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("请输入正确的手机号")) {
-            //NO
-            //handler.post(runnable);
-            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
-        } else if (registerstarge.equals("用户名已被注册，可找回")) {
-            handler.post(runnable);
-            SMSSDK.getVerificationCode("86",forget_userName.getText().toString());
-        } else if (registerstarge.equals("用户名有误")) {
-            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+        switch (registerstarge){
+            case "用户名已被注册":
+                handler.post(runnable);
+                SMSSDK.getVerificationCode("86",forget_userName.getText().toString());
+                break;
         }
+
+//        if (registerstarge.equals("手机号不能为空")) {
+//            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+//        } else if (registerstarge.equals("请输入正确的手机号")) {
+//            //NO
+//            //handler.post(runnable);
+//            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+//        } else if (registerstarge.equals("用户名已被注册，可找回")) {
+//            handler.post(runnable);
+//            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+//            SMSSDK.getVerificationCode("86",forget_userName.getText().toString());
+//        } else if (registerstarge.equals("用户名有误")) {
+//            Toast.makeText(ForgetAct.this, registerstarge, Toast.LENGTH_SHORT).show();
+//        }
     }
 
     private void setPopupWindow() {

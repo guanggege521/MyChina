@@ -9,5 +9,7 @@ import android.widget.PopupWindow;
  */
 public interface PresenterInf {
     void getUserOrWrod(String username, String prassword);
+    void getUserOrWrodToUpDate(String username, String prassword);
     void getUserOrWrod(String username);
+    void getUserOrWrod(String username, String prassword,boolean sex,String name);
 }
