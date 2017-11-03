@@ -35,4 +35,5 @@ public class App extends MobApplication {
     public DaoSession getSessionDao(){
         return daoSession;
     }
+
 }

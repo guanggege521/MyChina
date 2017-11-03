@@ -53,22 +53,12 @@ public class Zhonghe extends Fragment {
         title.add("每日一搏");
 
         fragment = new ArrayList<>();
-        Zhonghe_Copy zhonghe_copy=null;
-        Zhonghe_Copy zhonghe_copy1 =null;
 
-        if(zhonghe_copy==null){
-            zhonghe_copy=new Zhonghe_Copy("action/api/news_list");
-            fragment.add(zhonghe_copy);
-        }else{
-            fragment.add(zhonghe_copy);
-        }
+        fragment.add(new Zhonghe_Copy("action/api/news_list"));
+        fragment.add(new Zhonghe_Copy("action/api/blog_list"));
+        fragment.add(new Zhonghe_Copy("action/api/tweet_list"));
+        fragment.add(new Zhonghe_Copy("action/api/blog_list"));
 
-        if(zhonghe_copy1==null){
-            zhonghe_copy1=new Zhonghe_Copy("action/api/blog_list");
-            fragment.add(zhonghe_copy1);
-        }else{
-            fragment.add(zhonghe_copy1);
-        }
 
     }
 

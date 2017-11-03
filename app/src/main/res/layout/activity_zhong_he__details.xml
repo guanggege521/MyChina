@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.my_china.homepage.home_activity.activity.ZhongHe_Details">
+
+    <LinearLayout
+        android:background="@color/main_green"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="10dp"
+            android:background="@drawable/ic_brows_back"
+            android:id="@+id/back_ZhongHe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="咨询详情"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <WebView
+        android:id="@+id/web_View"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"></WebView>
+</LinearLayout>

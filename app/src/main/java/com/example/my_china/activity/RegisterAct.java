@@ -80,7 +80,6 @@ public class RegisterAct extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initView() {
-
         reginst_userName = (EditText) findViewById(R.id.reginst_userName);
         reginst_prassWord = (EditText) findViewById(R.id.reginst_prassWord);
         register_Forget = (TextView) findViewById(R.id.register_Forget);

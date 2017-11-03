@@ -1,18 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.my_china.homepage.home_activity.homefragment.Zhonghe_Copy">
-
-    <TextView
-        android:id="@+id/text"
+<?xml version="1.0" encoding="utf-8"?>
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <ListView
-        android:id="@+id/lv"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"></ListView>
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lv"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-</LinearLayout>

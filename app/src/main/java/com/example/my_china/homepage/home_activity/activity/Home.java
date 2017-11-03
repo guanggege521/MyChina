@@ -25,10 +25,11 @@ public class Home extends AppCompatActivity {
     private FragmentManager supportFragmentManager;
     private FragmentTransaction begin;
     private RadioGroup grout_Home;
-    private Zhonghe zhonghe;
-    Dongtai dongtaif = null;
-    Faxian faxianf=null;
-    Wode wodef=null;
+
+    private Zhonghe zhonghe=new Zhonghe();
+    Dongtai dongtaif = new Dongtai();
+    Faxian faxianf=new Faxian();
+    Wode wodef=new Wode();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,49 +37,46 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         initView();
         getBegin();
+
+
         initGroupClick();
 //        init
     }
 
     private void initGroupClick() {
         grout_Home.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                begin = supportFragmentManager.beginTransaction();
                 switch (checkedId){
                     case R.id.xinwei:
-                        if(zhonghe!=null){
-                        supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,zhonghe).commit();
-                        }else{
-                            zhonghe=new Zhonghe();
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,zhonghe).commit();
-                        }
+                        begin.show(zhonghe);
+                        begin.hide(faxianf);
+                        begin.hide(dongtaif);
+                        begin.hide(wodef);
                     break;
                     case R.id.dongtan:
-                        if(dongtaif!=null){
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,dongtaif).commit();
-                        }else{
-                            dongtaif=new Dongtai();
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,dongtaif).commit();
-                        }
+                        begin.hide(zhonghe);
+                        begin.show(faxianf);
+                        begin.hide(dongtaif);
+                        begin.hide(wodef);
                         break;
                     case R.id.faxian:
-                        if(faxianf!=null){
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,faxianf).commit();
-                        }else{
-                            faxianf=new Faxian();
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,faxianf).commit();
-                        }
+                        begin.hide(zhonghe);
+                        begin.hide(faxianf);
+                        begin.show(dongtaif);
+                        begin.hide(wodef);
                         break;
                     case R.id.wode:
-                        if(wodef!=null){
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,wodef).commit();
-                        }else{
-                            wodef=new Wode();
-                            supportFragmentManager.beginTransaction().replace(R.id.fragment_Home,wodef).commit();
-                        }
+                        begin.hide(zhonghe);
+                        begin.hide(faxianf);
+                        begin.hide(dongtaif);
+                        begin.show(wodef);
                         break;
                 }
+                begin.commit();
             }
         });
     }
@@ -88,6 +86,13 @@ public class Home extends AppCompatActivity {
         begin = supportFragmentManager.beginTransaction();
         zhonghe = new Zhonghe();
         begin.add(R.id.fragment_Home, zhonghe);
+        begin.add(R.id.fragment_Home, faxianf);
+        begin.add(R.id.fragment_Home, dongtaif);
+        begin.add(R.id.fragment_Home, wodef);
+        begin.show(zhonghe);
+        begin.hide(faxianf);
+        begin.hide(dongtaif);
+        begin.hide(wodef);
         begin.commit();
     }
 
